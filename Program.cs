@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using csone.Models;
+
+
 namespace csone
 {
   class Program
@@ -68,79 +71,96 @@ namespace csone
       //       playing = false;
       //     }
       // }
+
+			System.Console.Clear();
+      Console.WriteLine("Hello User, what's your name?");
+      var myName = Console.ReadLine();
+      Console.WriteLine("Hello {0}, how's it going {0}?", myName);
+      string mood = Console.ReadLine();
+
+
+
+
+			User currentUser = new User(myName, mood);
+			// currentUser.Mood = mood;
+			// currentUser.Name = myName;
+			currentUser.greet();
+
+
+
       #endregion
 
 
       #region ROCK PAPER SCISSORS
 
-      Console.Clear();
-      //Outcomes has a key of choice and a value of what it beats
-      Dictionary<string, string> outcomes = new Dictionary<string, string>();
-      outcomes["rock"] = "scissors";
-      outcomes["paper"] = "rock";
-      outcomes["scissors"] = "paper";
-      string[] choices = outcomes.Keys.ToArray();
-      bool playing = true;
+      // Console.Clear();
+      // //Outcomes has a key of choice and a value of what it beats
+      // Dictionary<string, string> outcomes = new Dictionary<string, string>();
+      // outcomes["rock"] = "scissors";
+      // outcomes["paper"] = "rock";
+      // outcomes["scissors"] = "paper";
+      // string[] choices = outcomes.Keys.ToArray();
+      // bool playing = true;
 
 
-      Console.WriteLine("Would you like to Play Rock, Paper, Scissors?");
-      string play = Console.ReadLine().ToLower();
-      if (play[0] == 'n')
-      {
-        Console.WriteLine("Ok goodbye!");
-        playing = false;
-      }
-      else
-      {
-        Console.WriteLine("Great!");
-      }
-      while (playing)
-      {
-        Random rnd = new Random();
-        string compChoice = choices[rnd.Next(3)];
-        bool valid = false;
-        string playerChoice = "";
-        System.Console.WriteLine("Choose from Rock, Paper, or Scissors");
-        while (!valid)
-        {
-          playerChoice = Console.ReadLine().ToLower();
-          System.Console.WriteLine("You chose : " + playerChoice);
-          if (playerChoice != "rock" && playerChoice != "scissors" && playerChoice != "paper")
-          {
-            System.Console.WriteLine("Please make a valid selection");
-          }
-          else
-          {
-            valid = true;
-          }
-        }
-        System.Console.WriteLine("but I chose {0}", compChoice);
-        if (playerChoice == compChoice)
-        {
-          Console.WriteLine("It's a Tie!");
-        }
-        else if (outcomes[playerChoice] == compChoice)
-        {
-          Console.WriteLine("You Win!");
-        }
-        else
-        {
-          Console.WriteLine("It seems you have lost");
-        }
-        System.Console.WriteLine("Play Again? (Y/N) :");
-        string again = Console.ReadLine();
-        if (again[0] == 'n')
-        {
-          Console.WriteLine("Ok goodbye!");
-          playing = false;
-        }
-        else
-        {
-          Console.Clear();
-          Console.WriteLine("Great!");
+      // Console.WriteLine("Would you like to Play Rock, Paper, Scissors?");
+      // string play = Console.ReadLine().ToLower();
+      // if (play[0] == 'n')
+      // {
+      //   Console.WriteLine("Ok goodbye!");
+      //   playing = false;
+      // }
+      // else
+      // {
+      //   Console.WriteLine("Great!");
+      // }
+      // while (playing)
+      // {
+      //   Random rnd = new Random();
+      //   string compChoice = choices[rnd.Next(3)];
+      //   bool valid = false;
+      //   string playerChoice = "";
+      //   System.Console.WriteLine("Choose from Rock, Paper, or Scissors");
+      //   while (!valid)
+      //   {
+      //     playerChoice = Console.ReadLine().ToLower();
+      //     System.Console.WriteLine("You chose : " + playerChoice);
+      //     if (playerChoice != "rock" && playerChoice != "scissors" && playerChoice != "paper")
+      //     {
+      //       System.Console.WriteLine("Please make a valid selection");
+      //     }
+      //     else
+      //     {
+      //       valid = true;
+      //     }
+      //   }
+      //   System.Console.WriteLine("but I chose {0}", compChoice);
+      //   if (playerChoice == compChoice)
+      //   {
+      //     Console.WriteLine("It's a Tie!");
+      //   }
+      //   else if (outcomes[playerChoice] == compChoice)
+      //   {
+      //     Console.WriteLine("You Win!");
+      //   }
+      //   else
+      //   {
+      //     Console.WriteLine("It seems you have lost");
+      //   }
+      //   System.Console.WriteLine("Play Again? (Y/N) :");
+      //   string again = Console.ReadLine();
+      //   if (again[0] == 'n')
+      //   {
+      //     Console.WriteLine("Ok goodbye!");
+      //     playing = false;
+      //   }
+      //   else
+      //   {
+      //     Console.Clear();
+      //     Console.WriteLine("Great!");
 
-        }
-      }
+      //   }
+      // }
 
 
 
